@@ -51,7 +51,27 @@ def sign_up(request):
 
         else:
             User.objects.create(name=name, email=email, password=password)
-            return redirect("/dashboard/")
+            return redirect("/")
+        
+
+def login(request):
+    if request.method == "POST":
+        email = request.POST['email']
+        User_password = request.POST['password']
+        if User.objects.filter(email=email).exists():
+            obj = User.objects.get(email=email)
+            password = obj.password
+            if check_password(User_password, password):
+                return redirect('/dashboard/')
+            else:
+                messages.error(request, 'Password incorrect')
+                return redirect('/')
+        else:
+            messages.error(request, 'Email is not registered')
+            return redirect('/')
+
+
+
 
 
 def tables(request):
