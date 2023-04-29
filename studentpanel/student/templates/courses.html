@@ -1,4 +1,4 @@
-{%load static%}
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -55,14 +55,7 @@
             <span class="nav-link-text ms-1">Tenants</span>
           </a>
         </li> -->
-        <li class="nav-item">
-          <a class="nav-link text-white " href="/employees.html">
-            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="material-icons opacity-10">receipt_long</i>
-            </div>
-            <span class="nav-link-text ms-1">Employees</span>
-          </a>
-        </li>
+       
         <li class="nav-item">
           <a class="nav-link text-white active bg-gradient-primary" href="/courses/">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
@@ -76,14 +69,7 @@
         <li class="nav-item mt-3">
           <h6 class="ps-4 ms-2 text-uppercase text-xs text-white font-weight-bolder opacity-8">Account pages</h6>
         </li>
-        <li class="nav-item">
-          <a class="nav-link text-white " href="/profile.html">
-            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="material-icons opacity-10">person</i>
-            </div>
-            <span class="nav-link-text ms-1">Profile</span>
-          </a>
-        </li>
+        
         <li class="nav-item">
           <a class="nav-link text-white " href="/">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
@@ -194,6 +180,7 @@
                   <tbody>
                     <tr>
                       <td>
+                        
                         <div class="d-flex px-2 py-1">
                           <div>
                             <img src="{% static '/img/small-logos/logo-asana.svg' %}" class="avatar avatar-sm me-3" alt="xd">
@@ -235,6 +222,10 @@
             <div class="modal-body">
               <div class="card-body">
                 <form role="form" method='post' action='/addcourses/'>
+                  <form action="/update/{{object.id}}" method="POST">
+                    
+                  
+
                   {% csrf_token %}
                   <div class="row">
                     <div class="col-lg-6 col-md-6">

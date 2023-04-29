@@ -6,7 +6,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="apple-touch-icon" sizes="76x76" href="{% static 'img/apple-icon.png' %}">
-  <link rel="icon" type="image/png" href="img/favicon.png">
+  <link rel="icon" type="image/png" href="{% static 'img/favicon.png' %}">
   <title>
     Satkar Courses
   </title>
@@ -49,21 +49,9 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white " href="tenants.html">
-            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="material-icons opacity-10">table_view</i>
-            </div>
-            <span class="nav-link-text ms-1">Tenants</span>
-          </a>
+          
         </li>
-        <li class="nav-item">
-          <a class="nav-link text-white " href="employees.html">
-            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="material-icons opacity-10">receipt_long</i>
-            </div>
-            <span class="nav-link-text ms-1">Employees</span>
-          </a>
-        </li>
+        
         <li class="nav-item">
           <a class="nav-link text-white active bg-gradient-primary" href="/courses/">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
@@ -77,14 +65,7 @@
         <li class="nav-item mt-3">
           <h6 class="ps-4 ms-2 text-uppercase text-xs text-white font-weight-bolder opacity-8">Account pages</h6>
         </li>
-        <li class="nav-item">
-          <a class="nav-link text-white " href="/profile.html">
-            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="material-icons opacity-10">person</i>
-            </div>
-            <span class="nav-link-text ms-1">Profile</span>
-          </a>
-        </li>
+       
         <li class="nav-item">
           <a class="nav-link text-white " href="/">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
@@ -180,7 +161,9 @@
               <div class="table-responsive">
                 <table class="table align-items-center mb-0">
                   <thead>
+                    {% for s in student %}
                     <tr>
+                      {% for c in course %}
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Name</th>
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Email</th>
                       <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Mobile
@@ -199,66 +182,18 @@
                   </thead>
                   <tbody>
                     <tr>
-                      <td class="align-middle text-sm">Surya</td>
-                      <td class="align-middle text-sm">Suryapratapsoni@gmail.com</td>
-                      <td class="align-middle text-center text-sm">3265478914</td>
-                      <td class="text-center text-sm">MGC Satna</td>
-                      <td class="text-center text-sm">BCA</td>
-                      <td class="text-center text-sm">Nodejs</td>
-                      <td class="text-center text-sm">35000</td>
-                      <td class="text-center text-sm">6 Months</td>
+                      <td class="align-middle text-sm">{{s.name}}</td>
+                      <td class="align-middle text-sm">{{s.email}}</td>
+                      <td class="align-middle text-center text-sm">{{s.phone}}</td>
+                      <td class="text-center text-sm">{{s.collage}}</td>
+                      <td class="text-center text-sm">{{s.degree}}</td>
+                      <td class="text-center text-sm">{{c.course_name}}</td>
+                      <td class="text-center text-sm">{{c.fees}}</td>
+                      <td class="text-center text-sm">{{c.duration}}</td>
                     </tr>
-                    <tr>
-                      <td class="align-middle text-sm">Surya</td>
-                      <td class="align-middle text-sm">Suryapratapsoni@gmail.com</td>
-                      <td class="align-middle text-center text-sm">3265478914</td>
-                      <td class="text-center text-sm">MGC Satna</td>
-                      <td class="text-center text-sm">BCA</td>
-                      <td class="text-center text-sm">Nodejs</td>
-                      <td class="text-center text-sm">35000</td>
-                      <td class="text-center text-sm">6 Months</td>
-                    </tr>
-                    <tr>
-                      <td class="align-middle text-sm">Surya</td>
-                      <td class="align-middle text-sm">Suryapratapsoni@gmail.com</td>
-                      <td class="align-middle text-center text-sm">3265478914</td>
-                      <td class="text-center text-sm">MGC Satna</td>
-                      <td class="text-center text-sm">BCA</td>
-                      <td class="text-center text-sm">Nodejs</td>
-                      <td class="text-center text-sm">35000</td>
-                      <td class="text-center text-sm">6 Months</td>
-                    </tr>
-                    <tr>
-                      <td class="align-middle text-sm">Surya</td>
-                      <td class="align-middle text-sm">Suryapratapsoni@gmail.com</td>
-                      <td class="align-middle text-center text-sm">3265478914</td>
-                      <td class="text-center text-sm">MGC Satna</td>
-                      <td class="text-center text-sm">BCA</td>
-                      <td class="text-center text-sm">Nodejs</td>
-                      <td class="text-center text-sm">35000</td>
-                      <td class="text-center text-sm">6 Months</td>
-                    </tr>
-                    <tr>
-                      <td class="align-middle text-sm">Surya</td>
-                      <td class="align-middle text-sm">Suryapratapsoni@gmail.com</td>
-                      <td class="align-middle text-center text-sm">3265478914</td>
-                      <td class="text-center text-sm">MGC Satna</td>
-                      <td class="text-center text-sm">BCA</td>
-                      <td class="text-center text-sm">Nodejs</td>
-                      <td class="text-center text-sm">35000</td>
-                      <td class="text-center text-sm">6 Months</td>
-                    </tr>
-                    <tr>
-                      <td class="align-middle text-sm">Surya</td>
-                      <td class="align-middle text-sm">Suryapratapsoni@gmail.com</td>
-                      <td class="align-middle text-center text-sm">3265478914</td>
-                      <td class="text-center text-sm">MGC Satna</td>
-                      <td class="text-center text-sm">BCA</td>
-                      <td class="text-center text-sm">Nodejs</td>
-                      <td class="text-center text-sm">35000</td>
-                      <td class="text-center text-sm">6 Months</td>
-                    </tr>
+                    {% endfor %}
                   </tbody>
+                  {% endfor %}
                 </table>
               </div>
             </div>
@@ -278,38 +213,38 @@
             </div>
             <div class="modal-body">
               <div class="card-body">
-                <form role="form">
+                <form role="form" method="POST" action="/addstudent/">
                   <div class="row">
                     <div class="col-lg-6 col-md-6">
                       <div class="input-group input-group-outline mb-3">
                         <label class="form-label">Name</label>
-                        <input type="text" class="form-control" onfocus="focused(this)" onfocusout="defocused(this)">
+                        <input type="text" class="form-control" onfocus="focused(this)" onfocusout="defocused(this)" nam='name'>
                       </div>
                     </div>
                     <div class="col-lg-6 col-md-6">
                       <div class="input-group input-group-outline mb-3">
                         <label class="form-label">Email</label>
-                        <input type="email" class="form-control" onfocus="focused(this)" onfocusout="defocused(this)">
+                        <input type="email" class="form-control" onfocus="focused(this)" onfocusout="defocused(this)" name='email'>
                       </div>
                     </div>
                     <div class="col-lg-6 col-md-6">
                       <div class="input-group input-group-outline mb-3">
                         <label class="form-label">Mobile No.</label>
-                        <input type="text" class="form-control" onfocus="focused(this)" onfocusout="defocused(this)">
+                        <input type="text" class="form-control" onfocus="focused(this)" onfocusout="defocused(this)" name='phone'>
                       </div>
                     </div>
 
                     <div class="col-lg-6 col-md-6">
                       <div class="input-group input-group-outline mb-3">
                         <label class="form-label">College</label>
-                        <input type="text" class="form-control" onfocus="focused(this)" onfocusout="defocused(this)">
+                        <input type="text" class="form-control" onfocus="focused(this)" onfocusout="defocused(this)" name='collage'>
                       </div>
                     </div>
 
                     <div class="col-lg-6 col-md-6">
                       <div class="input-group input-group-outline mb-3">
                         <label class="form-label">Degree</label>
-                        <input type="text" class="form-control" onfocus="focused(this)" onfocusout="defocused(this)">
+                        <input type="text" class="form-control" onfocus="focused(this)" onfocusout="defocused(this)" name='degree'>
                       </div>
                     </div>
 
@@ -317,36 +252,29 @@
                     <div class="col-lg-6 col-md-6">
                       <div class="input-group input-group-outline mb-3">
                         <select class="form-select form-control" placeholder="courses" onfocus="focused(this)"
-                          onfocusout="defocused(this)" aria-label="Default select example">
+                          onfocusout="defocused(this)" aria-label="Default select example" name='course'> 
                           <option class="fw-lighter" selected>Courses</option>
-                          <option value="Python">Python</option>
-                          <option value="Node js">Node js</option>
-                          <option value=Java">Java</option>
+                       
                         </select>
                       </div>
                     </div>
 
                     <div class="col-lg-6 col-md-6">
                       <div class="input-group input-group-outline mb-3">
-                        <select class="form-select form-control" onfocus="focused(this)" onfocusout="defocused(this)"
+                        <select class="form-select form-control" onfocus="focused(this)" onfocusout="defocused(this)"name='course'
                           aria-label="Default select example">
-                          <option selected>Fees</option>
-                          <option value="13k">13k</option>
-                          <option value="15k">15k</option>
-                          <option value=30k">30k</option>
+                          <option> {{course.course_name}}</option>
+                         
                         </select>
                       </div>
                     </div>
 
                     <div class="col-lg-6 col-md-6">
                       <div class="input-group input-group-outline mb-3">
-                        <select class="form-select form-control" onfocus="focused(this)" onfocusout="defocused(this)"
+                        <select class="form-select form-control" onfocus="focused(this)" onfocusout="defocused(this)" name='course'
                           aria-label="Default select example">
                           <option selected>Duration</option>
-                          <option value="3 Months">3 Months</option>
-                          <option value="6 Months">6 Months</option>
-                          <option value="9 Months">9 Months</option>
-                          <option value="12 Months">12 Months</option>
+                         
 
                         </select>
                       </div>
@@ -362,16 +290,10 @@
                       id="floatingTextarea"></textarea>
                     </div>
                     
-                    
-                    <div class="col-lg-12 col-md-12 my-2">
-                      <div class="d-flex align-items-center justify-content-lg-between">
-                        <label for="myfile">Upload Image : </label>
-                        <input type="file" id="myfile" name="myfile">
-                      </div>
-                    </div>
+                   
 
                     <div class="text-center">
-                      <button type="button" class="btn btn-lg bg-gradient-primary btn-lg w-100 mt-2 mb-0"
+                      <button type="Submit" class="btn btn-lg bg-gradient-primary btn-lg w-100 mt-2 mb-0"
                         data-bs-dismiss="modal">Submit</button>
                     </div>
                   </div>
